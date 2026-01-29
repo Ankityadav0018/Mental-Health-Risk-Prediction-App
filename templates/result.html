@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assessment Result</title>
+    <!-- Link CSS correctly for Flask on macOS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h2>Your Mental Health Assessment Result</h2>
+
+    {% set _risk_label_lower = risk_label|lower %}
+    {% if 'low' in _risk_label_lower %}
+        {% set risk_class = 'risk-low' %}
+        {% set risk_sentence = 'Your answers suggest a lower level of current mental health risk.' %}
+    {% elif 'medium' in _risk_label_lower %}
+        {% set risk_class = 'risk-medium' %}
+        {% set risk_sentence = 'Your answers suggest a moderate level of current mental health risk.' %}
+    {% elif 'high' in _risk_label_lower %}
+        {% set risk_class = 'risk-high' %}
+        {% set risk_sentence = 'Your answers suggest a higher level of current mental health risk.' %}
+    {% else %}
+        {% set risk_class = '' %}
+        {% set risk_sentence = 'Your answers could not be clearly grouped into low, medium or high risk.' %}
+    {% endif %}
+
+    <div class="result">
+        <p>
+            <strong>Overall risk level:</strong>
+            <span class="risk-badge {{ risk_class }}">{{ risk_label }}</span>
+        </p>
+        <p>{{ risk_sentence }}</p>
+        <p><strong>Model confidence (approximate):</strong> {{ confidence_percent }}%</p>
+        <p>This result is based on patterns found in the data you provided. It is meant to give you a rough idea of your current mental health risk, not a diagnosis.</p>
+    </div>
+
+    <div class="disclaimer">
+        <p><strong>Important:</strong> This tool cannot tell you for sure whether you have any mental health condition. It may be wrong or incomplete.</p>
+        <p>If you are feeling very low, unsafe, or worried about your mental health, please contact a doctor, counsellor, or mental health professional as soon as possible. If you are in immediate danger, contact your local emergency number or a crisis helpline in your country.</p>
+    </div>
+
+    <br>
+    <a href="/">← Back to Assessment</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mental Health Assessment</title>
+    <!-- Link CSS correctly for Flask on macOS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h2>Mental Health Well-Being Assessment</h2>
+    <form action="/predict" method="post">
+
+        <div class="question-block">
+        <span class="question-label">Are you self-employed?</span>
+        <span class="helper-text">This can influence your daily stress and support system.</span>
+        <select name="self_employed" required>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Maybe</option>
+        </select>
+        </div>
+
+        <div class="question-block">
+        <span class="question-label">Family history of mental health issues?</span>
+        <span class="helper-text">For example, anxiety, depression or other conditions.</span>
+        <select name="family_history" required>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Maybe</option>
+        </select>
+        </div>
+
+        <div class="question-block">
+        <span class="question-label">Currently taking treatment?</span>
+        <span class="helper-text">Medication, therapy, counselling or any other support.</span>
+        <select name="treatment" required>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Maybe</option>
+        </select>
+        </div>
+
+        <div class="question-block">
+        <span class="question-label">How long have you mostly stayed indoors?</span>
+        <span class="helper-text">Think about your usual routine during the last few weeks.</span>
+        <select name="days_indoors" required>
+            <option>Go out Every day</option>
+            <option>1-14 days</option>
+            <option>15-30 days</option>
+            <option>More than 2 months</option>
+        </select>
+        </div>
+
+        <div class="question-block">
+        <span class="question-label">Have you noticed changes in your habits?</span>
+        <span class="helper-text">For example, changes in sleep, appetite or hobbies.</span>
+        <select name="changes_habits" required>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Maybe</option>
+        </select>
+        </div>
+
+        <div class="question-block">
+        <span class="question-label">Do you have a mental health history?</span>
+        <span class="helper-text">Such as previous diagnosis or treatment in the past.</span>
+        <select name="mental_health_history" required>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Maybe</option>
+        </select>
+        </div>
+
+        <div class="question-block">
+        <span class="question-label">Are you experiencing growing stress?</span>
+        <span class="helper-text">Stress that feels like it is building up over time.</span>
+        <select name="growing_stress" required>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Maybe</option>
+        </select>
+        </div>
+
+        <div class="question-block">
+        <span class="question-label">How often do you have mood swings?</span>
+        <span class="helper-text">How often your mood changes a lot during a day or week.</span>
+        <select name="mood_swings" required>
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+        </select>
+        </div>
+
+        <div class="question-block">
+        <span class="question-label">Do you struggle to cope with things?</span>
+        <span class="helper-text">For example, daily tasks feeling harder than usual.</span>
+        <select name="coping_struggles" required>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Maybe</option>
+        </select>
+        </div>
+
+        <div class="question-block">
+        <span class="question-label">Do you feel interested in your work/study?</span>
+        <span class="helper-text">Loss of interest can sometimes be a warning sign.</span>
+        <select name="work_interest" required>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Maybe</option>
+        </select>
+        </div>
+
+        <div class="question-block">
+        <span class="question-label">Do you feel socially weak or isolated?</span>
+        <span class="helper-text">For example, feeling alone or disconnected from others.</span>
+        <select name="social_weakness" required>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Maybe</option>
+        </select>
+        </div>
+
+        <button type="submit">Get Mental Health Assessment</button>
+    </form>
+    </div>
+</body>
+</html>
